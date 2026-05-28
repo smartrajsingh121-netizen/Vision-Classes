@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vision Classes - Dream • Learn • Achieve</title>
+    <!-- Google Fonts & FontAwesome for Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #0d1b3e; /* Navy Blue */
+            --secondary-color: #e6231e; /* Red */
+            --accent-color: #fdb813; /* Yellow */
+            --text-dark: #333333;
+            --text-light: #ffffff;
+            --bg-light: #f8f9fa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            color: var(--text-dark);
+            background-color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 10px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        /* CUSTOM LOGO MATCHING THE FLYER */
+        .logo-area {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+
+        .logo-icon-container {
+            position: relative;
+            color: var(--primary-color);
+            font-size: 28px;
+            margin-bottom: -5px;
+        }
+
+        .logo-icon-container .sun-rays {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--accent-color);
+            font-size: 16px;
+        }
+
+        .logo-vision {
+            font-size: 36px;
+            font-weight: 900;
+            color: var(--primary-color);
+            line-height: 1;
+            letter-spacing: 1px;
+        }
+
+        .logo-classes {
+            font-size: 16px;
+            font-weight: 800;
+            color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            letter-spacing: 2px;
+        }
+
+        .logo-classes::before, .logo-classes::after {
+            content: '';
+            display: block;
+            width: 30px;
+            height: 2px;
+            background-color: var(--secondary-color);
+            border-top: 2px solid var(--secondary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            height: 6px;
+            box-sizing: border-box;
+            background-clip: content-box;
+            padding: 1px 0;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 25px;
+        }
+
+        .nav-links a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(13,27,62,0.95) 0%, rgba(20,40,90,0.9) 100%);
+            color: var(--text-light);
+            padding: 100px 5% 80px;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero h2 {
+            font-size: 50px;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            font-weight: 900;
+        }
+
+        .hero h2 span {
+            color: var(--secondary-color);
+        }
+
+        .hero .tagline {
+            font-size: 20px;
+            color: var(--text-light);
+            font-weight: 600;
+            margin-bottom: 20px;
+            word-spacing: 5px;
+        }
+        
+        .hero .tagline span.dream { color: var(--primary-color); background: white; padding: 2px 8px; border-radius: 4px;}
+        .hero .tagline span.learn { color: green; background: white; padding: 2px 8px; border-radius: 4px;}
+        .hero .tagline span.achieve { color: var(--secondary-color); background: white; padding: 2px 8px; border-radius: 4px;}
+
+        .hero .sub-tagline {
+            font-style: italic;
+            font-size: 18px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .features-badges {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 12px 25px;
+            border-radius: 50px;
+            border: 1px solid rgba(255,255,255,0.2);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .badge:hover { transform: translateY(-3px); }
+        .badge i { color: var(--accent-color); }
+
+        /* Stats Section */
+        .stats-bar {
+            background: var(--secondary-color);
+            color: var(--text-light);
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .stat-item h3 { font-size: 32px; font-weight: 700; }
+
+        /* About & Founders Section */
+        .about-section {
+            padding: 80px 5%;
+            background: var(--bg-light);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            color: var(--primary-color);
+            margin-bottom: 50px;
+            position: relative;
+            font-weight: 800;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--secondary-color);
+            margin: 10px auto 0;
+        }
+
+        .about-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 60px;
+        }
+
+        .founders-grid {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .founder-card {
+            background: var(--text-light);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            width: 300px;
+            border-top: 5px solid var(--primary-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .founder-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .founder-card i {
+            font-size: 50px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .founder-card h4 {
+            font-size: 22px;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        .founder-card p {
+            color: var(--secondary-color);
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            margin-top: 5px;
+        }
+
+        /* Course / Classes Section */
+        .classes-section {
+            padding: 80px 5%;
+        }
+
+        .main-box-container {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .class-target-box {
+            background: var(--primary-color);
+            color: var(--text-light);
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            flex: 1;
+            min-width: 300px;
+            max-width: 450px;
+            box-shadow: 0 8px 20px rgba(13,27,62,0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .class-target-box:hover { transform: translateY(-5px); }
+
+        .class-target-box h3 {
+            font-size: 22px;
+            border-bottom: 2px solid rgba(255,255,255,0.1);
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        .class-target-box .grade {
+            font-size: 65px;
+            font-weight: 800;
+            color: var(--accent-color);
+            margin: 20px 0;
+            line-height: 1;
+        }
+
+        .boards-container {
+            background: var(--text-light);
+            color: var(--text-dark);
+            padding: 40px;
+            border-radius: 15px;
+            flex: 1;
+            min-width: 300px;
+            max-width: 550px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            border: 1px solid #eee;
+            transition: transform 0.3s ease;
+        }
+
+        .boards-container:hover { transform: translateY(-5px); }
+
+        .boards-grid {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 25px;
+        }
+
+        .board-item {
+            text-align: center;
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .board-item i {
+            font-size: 40px;
+            display: block;
+            margin-bottom: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .board-item:hover i { transform: scale(1.1); }
+
+        .board-up { color: #0d1b3e; }
+        .board-cbse { color: #2e7d32; }
+        .board-icse { color: #ef6c00; }
+
+        .pillars {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .pillar-item { flex: 1; min-width: 100px; font-size: 13px; font-weight: 600;}
+        .pillar-item i { font-size: 24px; color: var(--text-light); margin-bottom: 8px; display: block; }
+
+        /* Tuition Features List */
+        .features-list-section {
+            background: #fff;
+            padding: 40px 5%;
+        }
+
+        .features-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--bg-light);
+            padding: 30px;
+            border-radius: 10px;
+            border-left: 5px solid var(--secondary-color);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .features-wrapper h3 {
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            text-transform: uppercase;
+        }
+
+        .list-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 15px;
+        }
+
+        .list-item { display: flex; align-items: center; gap: 10px; font-weight: 600; color: #444;}
+        .list-item i { color: var(--primary-color); font-size: 18px; }
+
+        /* Quote banner */
+        .quote-banner {
+            background: var(--primary-color);
+            color: var(--text-light);
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 24px;
+            font-style: italic;
+            font-weight: 600;
+        }
+        .quote-banner span { color: var(--secondary-color); font-weight: 800;}
+
+        /* Contact Section */
+        .contact-section {
+            padding: 80px 5%;
+            background: var(--bg-light);
+        }
+
+        .contact-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .contact-card i {
+            font-size: 35px;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+
+        .contact-card h4 {
+            font-size: 18px;
+            margin-bottom: 5px;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        .contact-card p, .contact-card a {
+            font-size: 18px;
+            color: #555;
+            text-decoration: none;
+            display: block;
+            margin-top: 5px;
+            font-weight: 600;
+        }
+        
+        .contact-card a:hover { color: var(--secondary-color); }
+
+        /* WORKING CONTACT FORM STYLES */
+        .contact-form-container {
+            flex: 1;
+            min-width: 300px;
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .contact-form-container h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #eee;
+            border-radius: 5px;
+            font-size: 15px;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        .contact-form input:focus, .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .submit-btn {
+            background: var(--secondary-color);
+            color: var(--text-light);
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .submit-btn:hover { background: #c01b17; }
+
+        /* Footer */
+        footer {
+            background: var(--primary-color);
+            color: var(--text-light);
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            border-top: 3px solid var(--accent-color);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav { flex-direction: column; gap: 15px; }
+            .nav-links { padding-bottom: 10px; }
+            .nav-links li { margin: 0 10px; }
+            .hero h2 { font-size: 36px; }
+            .hero .tagline { font-size: 16px; }
+            .class-target-box .grade { font-size: 50px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navbar with Custom Logo -->
+    <nav>
+        <a href="#home" class="logo-area">
+            <div class="logo-icon-container">
+                <i class="fa-solid fa-sun sun-rays"></i>
+                <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+            <div class="logo-vision">VISION</div>
+            <div class="logo-classes">CLASSES</div>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#courses">Courses</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <h2>VISION <span>CLASSES</span></h2>
+        <p class="tagline"><span class="dream">Dream</span> • <span class="learn">Learn</span> • <span class="achieve">Achieve</span></p>
+        <p class="sub-tagline">“Learning Today.... Leading Tomorrow”</p>
+        
+        <div class="features-badges">
+            <div class="badge"><i class="fa-solid fa-bullseye" style="color: var(--accent-color);"></i> Strong Concepts</div>
+            <div class="badge"><i class="fa-solid fa-lightbulb"></i> Better Learning</div>
+            <div class="badge"><i class="fa-solid fa-star"></i> Bright Future</div>
+        </div>
+    </section>
+
+    <!-- Stats Counter Bar -->
+    <div class="stats-bar">
+        <div class="stat-item">
+            <h3>100+</h3>
+            <p>Students Taught</p>
+        </div>
+        <div class="stat-item">
+            <h3>2+</h3>
+            <p>Expert Mentors</p>
+        </div>
+        <div class="stat-item">
+            <h3>100%</h3>
+            <p>Concept Clarity</p>
+        </div>
+    </div>
+
+    <!-- About Section & Founders -->
+    <section class="about-section" id="about">
+        <h2 class="section-title">About Us</h2>
+        <div class="about-container">
+            <p>Welcome to Vision Classes, where we lay the foundation for a bright academic future. We believe that small steps taken today lead to big successes tomorrow. With a commitment to academic excellence, we offer premium tuition services tailored to nurture young minds, build strong conceptual foundations, and foster a lifelong love for learning.</p>
+        </div>
+
+        <h3 class="section-title" style="font-size: 28px; margin-bottom: 20px;">Our Founders</h3>
+        <div class="founders-grid">
+            <div class="founder-card">
+                <i class="fa-solid fa-user-tie"></i>
+                <h4>Jaya Srivastava</h4>
+                <p>Founder & Educator</p>
+            </div>
+            <div class="founder-card">
+                <i class="fa-solid fa-user-tie"></i>
+                <h4>Anmol Verma</h4>
+                <p>Founder & Educator</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Classes & Boards Section -->
+    <section class="classes-section" id="courses">
+        <div class="main-box-container">
+            <!-- Left Box: Targeted Class -->
+            <div class="class-target-box">
+                <h3 style="color: var(--accent-color); border-bottom-color: rgba(253, 184, 19, 0.3);">FOR CLASS</h3>
+                <div class="grade">PG <span style="font-size:30px; color:#fff; font-weight:400;">TO</span> 8</div>
+                
+                <div class="pillars">
+                    <div class="pillar-item">
+                        <i class="fa-solid fa-child-reaching"></i>
+                        <p>Personal Attention</p>
+                    </div>
+                    <div class="pillar-item">
+                        <i class="fa-solid fa-book-open"></i>
+                        <p>Concept Based Learning</p>
+                    </div>
+                    <div class="pillar-item">
+                        <i class="fa-solid fa-arrow-trend-up"></i>
+                        <p>Regular Tests & Tracking</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Box: Educational Boards -->
+            <div class="boards-container">
+                <h3 style="color: var(--primary-color); text-align:center; font-size:24px; font-weight:800;">FOR ALL MAJOR BOARDS</h3>
+                <div class="boards-grid">
+                    <div class="board-item board-up">
+                        <i class="fa-solid fa-building-columns"></i>
+                        UP BOARD
+                    </div>
+                    <div class="board-item board-cbse">
+                        <i class="fa-solid fa-book"></i>
+                        CBSE
+                    </div>
+                    <div class="board-item board-icse">
+                        <i class="fa-solid fa-fire-flame-curved"></i>
+                        ICSE
+                    </div>
+                </div>
+                
+                <div style="margin-top: 35px; border-top: 2px solid #eee; padding-top: 20px; display:flex; justify-content:space-around; font-weight: 700; color: var(--primary-color)">
+                    <p><i class="fa-solid fa-user" style="color: var(--accent-color);"></i> INDIVIDUAL ATTENTION</p>
+                    <p><i class="fa-solid fa-trophy" style="color: var(--accent-color);"></i> BETTER RESULTS</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed Features List Section -->
+    <section class="features-list-section">
+        <div class="features-wrapper">
+            <h3>WE PROVIDE TUITION FOR :</h3>
+            <div class="list-grid">
+                <div class="list-item"><i class="fa-solid fa-circle-check"></i> All Subjects</div>
+                <div class="list-item"><i class="fa-solid fa-circle-check"></i> Concept Clarity</div>
+                <div class="list-item"><i class="fa-solid fa-circle-check"></i> Regular Assignments & Tests</div>
+                <div class="list-item"><i class="fa-solid fa-circle-check"></i> Doubt Clearing Sessions</div>
+                <div class="list-item"><i class="fa-solid fa-circle-check"></i> Friendly & Supportive Environment</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Motivational Quote Break -->
+    <div class="quote-banner">
+        "Small Steps Today, <br> Big <span>Success</span> Tomorrow."
+    </div>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <h2 class="section-title">Contact Us</h2>
+        
+        <div class="contact-container">
+            <!-- Left Side: Cards -->
+            <div class="contact-info">
+                <!-- Address Card -->
+                <div class="contact-card">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <h4>Our Location</h4>
+                    <p>Near Sharda Public School,<br>'M' Block Kakadev</p>
+                </div>
+
+                <!-- Phone Card -->
+                <div class="contact-card">
+                    <i class="fa-solid fa-phone-volume"></i>
+                    <h4>Call For Admissions</h4>
+                    <a href="tel:7518953902">+91 7518953902</a>
+                    <a href="tel:8853427236">+91 8853427236</a>
+                </div>
+            </div>
+
+            <!-- Right Side: WORKING Contact Form -->
+            <div class="contact-form-container">
+                <h3>Send Us an Enquiry</h3>
+                
+                <!-- MAZEDAR HISSA YAHAN HAI: Niche 'your_email@gmail.com' ko apni email se replace karein -->
+                <form action="https://formsubmit.co/your_email@gmail.com" method="POST" class="contact-form">
+                    
+                    <!-- Hidden fields required for FormSubmit to work nicely -->
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_subject" value="New Website Enquiry - Vision Classes!">
+                    
+                    <!-- Input Fields -->
+                    <input type="text" name="Student_Name" placeholder="Student/Parent Name" required>
+                    <input type="tel" name="Phone_Number" placeholder="Phone Number" required>
+                    <input type="text" name="Class_Grade" placeholder="Class/Grade" required>
+                    <textarea name="Message" placeholder="Your Message or Enquiry" rows="4" required></textarea>
+                    
+                    <button type="submit" class="submit-btn">Submit Enquiry</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Vision Classes. All Rights Reserved. | "Learning Today.... Leading Tomorrow"</p>
+    </footer>
+
+</body>
+</html>
